@@ -14,4 +14,3 @@ assertEqual(head(["Hello", "Lighthouse", "Labs"]), "Hello");
 assertEqual(head([11]), 5);
 assertEqual(head([5]), 5);
 assertEqual(head([]), 5);
-
