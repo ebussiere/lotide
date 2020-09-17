@@ -20,8 +20,12 @@ const countLetters = function(letters) {
   return result;
 };
 
-const result1 = countLetters('Create a hypothesis of what will happen when you run your code now');
-assertEqual(result1["c"], 2);
+//const result1 = countLetters('Create a hypothesis of what will happen when you run your code now');
+const result1 = countLetters('Mississippi');
+
+assertEqual(result1["m"], 1);
+assertEqual(result1["i"], 4);
+assertEqual(result1["r"], undefined);
 
 
 
