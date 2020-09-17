@@ -1,17 +1,22 @@
 const assertArraysEqual = function(actual, expected) {
+  let isPass = true;
   const passMessage = `✅ Assertion Passed: ${actual} === ${expected}`;
   const failMessage = `🛑 Assertion Failed: ${actual} !== ${expected}`;
   let message = passMessage;
   if (actual.length !== expected.length) {
     message = failMessage;
+    isPass = false;
   } else {
     for (let i = 0; i < actual.length; i++) {
       if (actual[i] !== expected[i]) {
         message = failMessage;
+        isPass = false;
       }
     }
   }
   console.log(message);
+  console.log(isPass);
+  return isPass;
 };
 
 let eqArrays = function(arr0,arr1) {
@@ -33,6 +38,7 @@ const assertEqual = function(actual, expected) {
 };
 
 const eqObjects = function(object1, object2) {
+  const inspect = require('util').inspect;
   const ob1Keys = Object.keys(object1);
   const ob2Keys = Object.keys(object2);
   if (ob1Keys.length === ob2Keys.length) {
@@ -44,7 +50,7 @@ const eqObjects = function(object1, object2) {
       }
     } 
   } else {
-    console.log(`🛑 Assertion Failed: ${object1} !== ${object2}`);
+    console.log(`🛑 Assertion Failed: ${inspect(object1)} !== ${inspect(object2)}`);
   }
 };
 
