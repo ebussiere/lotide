@@ -14,11 +14,11 @@ const assertArraysEqual = function(actual, expected) {
   console.log(message);
 };
 
-let without = function(source,itemsToRemove) {
+let without = function(source, itemsToRemove) {
   for (let i = 0; i < itemsToRemove.length; i++) {
     for (let j = 0; j < source.length; j++) {
       if (source[j] === itemsToRemove[i]) {
-        source.splice([j],1);
+        source.splice([j], 1);
       }
     }
   }

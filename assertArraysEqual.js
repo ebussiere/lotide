@@ -5,7 +5,7 @@ const assertArraysEqual = function(actual, expected) {
   let message = passMessage;
   if (actual.length !== expected.length) {
     message = failMessage;
-    isPass = false
+    isPass = false;
   } else {
     for (let i = 0; i < actual.length; i++) {
       if (actual[i] !== expected[i]) {

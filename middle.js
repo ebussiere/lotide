@@ -1,8 +1,8 @@
-let eqArrays = function(arr0,arr1) {
+let eqArrays = function(arr0, arr1) {
   assertEqual(arr0.length, arr1.length);
   if (arr0.length === arr1.length) {
     for (let i = 0; i < arr0.length; i++) {
-      assertEqual(arr0[i],arr1[i]);
+      assertEqual(arr0[i], arr1[i]);
     }
   }
 };
@@ -32,24 +32,24 @@ const assertArraysEqual = function(actual, expected) {
 };
 
 const middle = function(array) {
-  let result =[];
-  let midLength = Math.floor(array.length/2);
-  if (array.length > 2 && array.length%2===0 ) {
-    result.push(array[midLength-1]);
+  let result = [];
+  let midLength = Math.floor(array.length / 2);
+  if (array.length > 2 && array.length % 2 === 0) {
+    result.push(array[midLength - 1]);
     result.push(array[(midLength)]);
   }
-  else if (array.length > 2 && array.length%2===1){
-      result.push(array[(midLength)]);
+  else if (array.length > 2 && array.length % 2 === 1) {
+    result.push(array[(midLength)]);
   }
-  return(result);
-}
+  return (result);
+};
 
-assertArraysEqual(middle([1]),[]) // => []
-assertArraysEqual(middle([1, 2]),[]) // => []
-assertArraysEqual(middle([1, 2, 3]),[2]) // => [2]
-assertArraysEqual(middle([1, 2, 3, 4, 5]),[3]) // => [3]
-assertArraysEqual(middle([1, 2, 3, 4]),[2, 3]) // => [2, 3]
-assertArraysEqual(middle([1, 2, 3, 4, 5, 6]),[3, 4]) // => [3, 4]
+assertArraysEqual(middle([1]), []); // => []
+assertArraysEqual(middle([1, 2]), []); // => []
+assertArraysEqual(middle([1, 2, 3]), [2]); // => [2]
+assertArraysEqual(middle([1, 2, 3, 4, 5]), [3]); // => [3]
+assertArraysEqual(middle([1, 2, 3, 4]), [2, 3]); // => [2, 3]
+assertArraysEqual(middle([1, 2, 3, 4, 5, 6]), [3, 4]); // => [3, 4]
 
 
 

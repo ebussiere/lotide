@@ -13,7 +13,7 @@ const result = function() {
     //get first letter of word
     let first = args[i][0];
     //get the rest of the letters of the word
-    let rest = args[i].slice(1,args[i].length);
+    let rest = args[i].slice(1, args[i].length);
     //switch their orders and add result to output
     output = `${output}${rest}${first}ay `;
   }

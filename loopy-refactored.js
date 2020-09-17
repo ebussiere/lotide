@@ -7,7 +7,7 @@ const loopyLighthouse = function(range, multiples, words) {
       y = words[0];
     } else if (x % multiples[1] === 0) {
       y = words[1];
-    } 
+    }
     console.log(y);
   }
 };

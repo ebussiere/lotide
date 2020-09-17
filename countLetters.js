@@ -4,7 +4,7 @@ const assertEqual = function(actual, expected) {
     console.log(`✅ Assertion Passed: ${actual} === ${expected}`);
   } else {
     console.log(`🛑 Assertion Failed: ${actual} !== ${expected}`);
-    isPass=false;
+    isPass = false;
   }
   console.log(isPass);
   return isPass;
@@ -16,7 +16,7 @@ const countLetters = function(letters) {
     if (letter !== " ") {
       if (result[letter]) {
         result[letter] += 1;
-      } else  {
+      } else {
         result[letter] = 1;
       }
     }
