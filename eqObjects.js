@@ -1,3 +1,29 @@
+const assertArraysEqual = function(actual, expected) {
+  const passMessage = `✅ Assertion Passed: ${actual} === ${expected}`;
+  const failMessage = `🛑 Assertion Failed: ${actual} !== ${expected}`;
+  let message = passMessage;
+  if (actual.length !== expected.length) {
+    message = failMessage;
+  } else {
+    for (let i = 0; i < actual.length; i++) {
+      if (actual[i] !== expected[i]) {
+        message = failMessage;
+      }
+    }
+  }
+  console.log(message);
+};
+
+let eqArrays = function(arr0,arr1) {
+  assertEqual(arr0.length, arr1.length);
+  if (arr0.length === arr1.length) {
+    for (let i = 0; i < arr0.length; i++) {
+      assertEqual(arr0[i],arr1[i]);
+    }
+  }
+};
+
+
 const assertEqual = function(actual, expected) {
   if (actual === expected) {
     console.log(`✅ Assertion Passed: ${actual} === ${expected}`);
@@ -11,15 +37,28 @@ const eqObjects = function(object1, object2) {
   const ob2Keys = Object.keys(object2);
   if (ob1Keys.length === ob2Keys.length) {
     for (let k of ob1Keys) {
-      assertEqual(object1[k],object2[k]);
-    }
+      if (Array.isArray(object1[k]) && Array.isArray(object2[k])) {
+        assertArraysEqual(object1[k],object2[k]);
+      }else{
+        assertEqual(object1[k],object2[k]);
+      }
+    } 
+  } else {
+    console.log(`🛑 Assertion Failed: ${object1} !== ${object2}`);
   }
 };
 
-const ab = { a: "1", b: "2" };
-const ba = { b: "2", a: "1" };
+const cd = { c: "1", d: ["2", 3] };
+const dc = { d: ["2", 3], c: "1" };
 
-const bestTVShowsByGenre1 = {
+
+const cd2 = { c: "1", d: ["2", 3, 4] };
+
+
+ const ab = { a: "1", b: "2" };
+ const ba = { b: "2", a: "1" };
+
+ const bestTVShowsByGenre1 = {
   sciFi:"The Expanse",
   comedy:"Brooklyn Nine-Nine",
   drama:"The Wire",
@@ -37,13 +76,12 @@ const bestTVShowsByGenre2 = {
 
 const bestTVShowsByGenre3 = {
   sciFi:"Star Trek",
-  comedy:"Brooklyn Nine-Nine",
-  drama:"The Wire",
-  talk:"Ellen",
   realEntertainment:"Jerry Springer"
 };
 
 eqObjects(ab, ba); // => true
+eqObjects(cd, dc); // => true
+eqObjects(cd, cd2); // => false
 eqObjects(bestTVShowsByGenre1, bestTVShowsByGenre2); // => true
 eqObjects(bestTVShowsByGenre1, bestTVShowsByGenre3); // => false
 eqObjects(bestTVShowsByGenre2, bestTVShowsByGenre3); // => false
