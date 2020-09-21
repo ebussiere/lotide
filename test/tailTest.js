@@ -1,4 +1,12 @@
-const assertEqual = require('../assertEqual.js');
+const chai = require('chai');
+let assert = chai.assert;
+
 const tail = require('../tail.js');
-const assertArraysEqual = require('../assertArraysEqual.js');
-assertArraysEqual(tail(["Hello", "Lighthouse", "Labs"]), ["Lighthouse", "Labs"]);
+describe('#tail', () => {
+  it('Passes ["Lighthouse", "Labs"] for ["Hello", "Lighthouse", "Labs"]', function() {
+    assert.deepEqual(tail(["Hello", "Lighthouse", "Labs"]), ["Lighthouse", "Labs"]);
+  });
+  it('Fails for ["Lighthouse", "Labs"] for ["Hello", "Lighthouse", "Labs"]', function() {
+    assert.notDeepEqual(tail(["YoYo", "Hello", "Lighthouse", "Labs"]), ["Lighthouse", "Labs"]);
+  });
+});
