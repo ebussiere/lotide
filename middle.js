@@ -1,4 +1,4 @@
-let assertArraysEqual = require('./assertArraysEqual.js');
+//let assertArraysEqual = require('./assertArraysEqual.js');
 const middle = function(actual) {
   let result = [];
   let midLength = Math.floor(actual.length / 2);
